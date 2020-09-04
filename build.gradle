@@ -1,0 +1,32 @@
+plugins {
+    id 'org.jetbrains.kotlin.multiplatform' version '1.4.0'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+kotlin {
+    targets {
+        jvm()
+        js().nodejs()
+        js().browser()
+    }
+
+    sourceSets {
+        commonMain {
+            dependencies {
+                implementation kotlin('stdlib-common')
+            }
+        }
+        commonTest {
+            dependencies {
+                implementation kotlin('test-common')
+                implementation kotlin('test-annotations-common')
+            }
+        }
+    }
+}
